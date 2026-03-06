@@ -1,0 +1,27 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model Video {
+  id           String   @id @default(uuid())
+  uniqueCode   String   @unique
+  title        String
+  description  String?
+  originalName String
+  mimeType     String
+  fileSize     Int
+  storagePath  String   // Supabase Storage 경로 (삭제 시 사용)
+  storageUrl   String   // Supabase 공개 URL (영상 재생 src)
+  videoUrl     String   // 프론트엔드 watch 페이지 URL (QR 인코딩)
+  isPublic     Boolean  @default(true)
+  viewCount    Int      @default(0)
+  createdAt    DateTime @default(now())
+  updatedAt    DateTime @updatedAt
+
+  @@map("videos")
+}
