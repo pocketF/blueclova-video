@@ -25,3 +25,9 @@ Thumbs.db
 # 에디터
 .vscode/settings.json
 *.log
+
+# wrangler files
+.wrangler
+.dev.vars*
+!.dev.vars.example
+!.env.example
