@@ -16,6 +16,7 @@ const ALLOWED_ORIGINS = [
   process.env.FRONTEND_URL || "http://localhost:5173",
   "https://blueclova.com",
   "https://www.blueclova.com",
+  "https://blueclova-video.pages.dev",
 ];
 app.use(cors({ origin: ALLOWED_ORIGINS }));
 app.use(express.json());
